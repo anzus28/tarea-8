@@ -1,0 +1,183 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Weather Happy Eart</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/home.css" rel="stylesheet" type="text/css" />
+    <link href="css/forms.css" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+            <nav class="menu">
+                <ul>
+                    <li class="btn_1"><a href="home.html">Home</a></li>
+                    <li class="btn_2"><a href="weather.html">Tiempo</a></li>
+                    <li class="btn_3"><a href="credito.html">Crédito</a></li>
+                    <li class="btn_4"><a href="#">Servicios</a></li>
+                    <li class="btn_5"><a href="contacto.html">Contáctenos</a></li>
+                </ul>
+            </nav>
+            <img src="images/logo.jpg" alt="" name="logo" width="251" height="45" id="logo" />
+        </header>
+
+        <div id="main">
+
+            <div class="weather-wrapper">
+
+                <img src="images\icons\weather\day\clouds.png" />
+
+
+                <table class="default">
+                    <h2>Información del clima</h2>
+                    <tr>
+
+                        <th>
+                            <p><strong>Lugar</strong></p>
+                        </th>
+                        <td>
+                            <p>
+                                <br /><span class="weather-place"></span>
+                            </p>
+                        </td>
+
+
+
+
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <p><strong>Temperatura</strong></p>
+                        </th>
+                        <td>
+                            <p>
+                                <br /><span class="weather-temperature"></span> (<span
+                                    class="weather-min-temperature"></span> -
+                                <span class="weather-max-temperature"></span>)
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            <p><strong>Descripcion</strong></p>
+                        </th>
+                        <td>
+                            <p>
+                                <br /><span class="weather-description capitalize"></span>
+
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p><strong>Humedad</strong></p>
+                        </th>
+                        <td>
+                            <p>
+                                <br /><span class="weather-humidity"></span>
+
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p><strong>Velocidad del viento</strong></p>
+                        </th>
+                        <td>
+                            <p>
+                                <br /><span class="weather-wind-speed"></span>
+
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p><strong>Amanener</strong></p>
+                        </th>
+                        <td>
+                            <p>
+                                <br /><span class="weather-sunrise"></span>
+
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <p><strong>Atardecer</strong></p>
+                        </th>
+                        <td>
+                            <p>
+                                <br /><span class="weather-sunset"></span>
+                            </p>
+                        </td>
+                    </tr>
+
+
+
+                </table>
+            </div>
+
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+            <script type="text/javascript">
+                if (typeof jQuery == 'undefined') {
+                    document.write(unescape("%3Cscript src='src/js/lib/jquery.1.9.1.min.js' type='text/javascript'%3E%3C/script%3E"));
+                }
+            </script>
+
+            <script src="scr/weather.js"></script>
+
+            <script>
+
+
+
+                /*-----------*/
+                $(function () {
+
+                    $('.weather-temperature').openWeather({
+                        key: 'c9d49310f8023ee2617a7634de23c2aa',
+                        city: 'Alajuela',
+                        descriptionTarget: '.weather-description',
+                        windSpeedTarget: '.weather-wind-speed',
+                        minTemperatureTarget: '.weather-min-temperature',
+                        maxTemperatureTarget: '.weather-max-temperature',
+                        humidityTarget: '.weather-humidity',
+                        sunriseTarget: '.weather-sunrise',
+                        sunsetTarget: '.weather-sunset',
+                        placeTarget: '.weather-place',
+                        iconTarget: '.weather-icon',
+                        customIcons: '../src/img/icons/weather/',
+                        success: function (data) {
+                            // show weather
+                            $('.weather-wrapper').show();
+                            console.log(data);
+                        },
+                        error: function (data) {
+                            console.log(data.error);
+                            $('.weather-wrapper').remove();
+                        }
+                    });
+
+                });
+
+            </script>
+        </div>
+
+        <footer id="footer">
+            <p>
+                <a href="home.html">Home</a> | <a href="weather.html">Tiempo</a> | <a href="credito.html">Crédito</a> |
+                <a href="#">Servicios</a> | <a href="contacto.html">Contáctenos</a><br />
+                Copyright &copy; Real State Happy Eart
+            </p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
